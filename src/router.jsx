@@ -9,12 +9,12 @@ const router = createBrowserRouter([
         element: <Home />,
         children: [
             {
-                path: "buscar-cep",
-                element: <SearchZipCode />
+                index: true,
+                element: <SearchAddress />
             },
             {
-                path: "buscar-endereco",
-                element: <SearchAddress />
+                path: "buscar-cep",
+                element: <SearchZipCode />
             }
         ]
     }
