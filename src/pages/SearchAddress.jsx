@@ -1,38 +1,39 @@
-import { useState } from 'react'
-import Address from '../components/Address';
-
+import { useState } from "react";
+import Address from "../components/Address";
 
 const fetchAddress = async (ent) => {
   const resposta = await fetch(`https://viacep.com.br/ws/${ent}/json/`);
   const saida = await resposta.json();
-  console.log(saida)
-  return saida
-}
+  console.log(saida);
+  return saida;
+};
 
 function SearchAddress() {
+  const [busca, setBusca] = useState("");
+  const [resultado, setResultado] = useState();
 
-    const [busca, setBusca] = useState("")
-    const [resultado, setResultado] = useState()
-
-    const handleSearch = () => {
-        fetchAddress(busca).then(result => setResultado(result))
-    }
+  const handleSearch = (ev) => {
+    ev.preventDefault();
+    fetchAddress(busca).then((result) => setResultado(result));
+  };
 
   return (
     <>
-      <label htmlFor="entrada">CEP:</label>
-      <input
-        type="text"
-        name="entrada"
-        id="entrada"
-        value={busca}
-        onChange={(ev) => setBusca(ev.target.value)}
-      />
-      <button
-        onClick={handleSearch}
-      >
-        BUSCAR
-      </button>
+      <form onSubmit={handleSearch} className="searchAdd_form">
+        <div>
+          {/* <label htmlFor="entrada">CEP:</label> */}
+          <input
+            type="text"
+            name="entrada"
+            id="entrada"
+            value={busca}
+            placeholder="CEP"
+            required
+            onChange={(ev) => setBusca(ev.target.value)}
+          />
+        </div>
+        <button type="submit">BUSCAR</button>
+      </form>
       {resultado ? (
         <Address
           cep={resultado.cep}
@@ -41,9 +42,9 @@ function SearchAddress() {
           cidade={resultado.localidade}
           estado={resultado.uf}
         />
-      ) : ""}
-      
-      
+      ) : (
+        ""
+      )}
     </>
   );
 }

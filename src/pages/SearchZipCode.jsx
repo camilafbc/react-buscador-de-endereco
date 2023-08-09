@@ -39,6 +39,7 @@ function SearchZipCode() {
     <div>
       <form
         onSubmit={handleSearch}
+        className="searchZC_form"
       >
         <div>
           <label htmlFor="estado">Estado:</label>
