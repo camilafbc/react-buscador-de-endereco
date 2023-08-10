@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Address from "../components/Address";
+import AddressTableRow from "../components/AddressTableRow";
 
 const fetchCEP = async (es, cd, rua) => {
   const resposta = await fetch(`https://viacep.com.br/ws/${es}/${cd}/${rua}/json/`);
@@ -105,24 +106,27 @@ function SearchZipCode() {
         <button
           type="submit"
         >
-          BUSCAR
+          <img src="/icons8-search.svg" alt="lupa-de-busca" />
         </button>
       </form>
       <div>
         {resultado ? (
           <>
+          <Address>
             {resultado.map(result => (
-              <Address 
+              <AddressTableRow 
                 cep={result.cep}
-                logradouro={result.logradouro}
-                bairro={result.bairro}
-                cidade={result.localidade}
                 estado={result.uf}
-                key={result.siafi}
+                cidade={result.localidade}
+                bairro={result.bairro}
+                logradouro={result.logradouro}
+                key={result.cep}
               />
             ))}
+          </Address>
+            
           </>
-        ) : ""}
+        ) : "Nada Encontrado"}
       </div>
     </div>
   );
