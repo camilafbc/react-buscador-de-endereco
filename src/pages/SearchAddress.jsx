@@ -23,7 +23,7 @@ function SearchAddress() {
   return (
     <>
       <form onSubmit={handleSearch} className="searchAdd_form">
-        <div>
+        
           {/* <label htmlFor="entrada">CEP:</label> */}
           <input
             type="text"
@@ -34,7 +34,7 @@ function SearchAddress() {
             required
             onChange={(ev) => setBusca(ev.target.value)}
           />
-        </div>
+        
         <button type="submit">
           <img src="/icons8-search.svg" alt="lupa-de-busca" />
         </button>
@@ -50,8 +50,7 @@ function SearchAddress() {
         <Address >
           <AddressTableRow 
             cep={resultado.cep}
-            estado={resultado.uf}
-            cidade={resultado.localidade}
+            localidade={resultado.localidade + "/" + resultado.uf}
             bairro={resultado.bairro}
             logradouro={resultado.logradouro}
           />

@@ -1,10 +1,9 @@
 // eslint-disable-next-line react/prop-types
-function AddressTableRow({cep, logradouro, bairro, cidade, estado }) {
+function AddressTableRow({ cep, logradouro, bairro, localidade }) {
   return (
     <tr>
       <td>{cep}</td>
-      <td>{estado}</td>
-      <td>{cidade}</td>
+      <td>{localidade}</td>
       <td>{bairro}</td>
       <td>{logradouro}</td>
     </tr>

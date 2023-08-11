@@ -53,18 +53,20 @@ body {
 }
 
 .searchAdd_form {
+  margin: 0 auto;
+  width: 300px;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  /* flex-wrap: wrap; */
+  /* justify-content: center; */
   align-items: center;
   gap: 1rem;
 }
 
-.searchAdd_form > div {
+/* .searchAdd_form > div {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-}
+} */
 
 .searchZC_form {
   margin: 0 auto;
