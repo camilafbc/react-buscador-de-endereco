@@ -5,7 +5,6 @@ import AddressTableRow from "../components/AddressTableRow";
 const fetchCEP = async (es, cd, rua) => {
   const resposta = await fetch(`https://viacep.com.br/ws/${es}/${cd}/${rua}/json/`);
   const saida = await resposta.json();
-  // console.log(saida)
   return saida
 }
 
@@ -24,17 +23,19 @@ function SearchZipCode() {
 
   const handleChange = (ev) => {
     setAddress((current) => ({ ...current, [ev.target.name]: ev.target.value }))
-    console.log(address)
+    // console.log(address)
   }
 
   const handleSearch = (ev) => {
     ev.preventDefault()
-    fetchCEP(address.estado, address.cidade, address.logradouro.trim().split(" ").join(" ")).then(result => setResultado(result))
+    fetchCEP(address.estado, address.cidade, address.logradouro.trim().split(" ").join(" ")).then(result => {
+      if(result.length === 0){
+        setResultado("none")
+      } else {
+        setResultado(result)
+      }
+    })
   }
-
-  // useEffect(() => {
-  //   console.log(resultado);
-  // }, [resultado]);
 
   return (
     <div>
@@ -110,26 +111,26 @@ function SearchZipCode() {
         </button>
       </form>
       <div>
-        {resultado ? (
-          <>
+        {resultado === "none" ? (
+          <p>Nenhum resultado encontrado!</p>
+        ) : resultado ? (
           <Address>
             {resultado.map(result => (
               <AddressTableRow 
-                cep={result.cep}
-                estado={result.uf}
-                cidade={result.localidade}
-                bairro={result.bairro}
-                logradouro={result.logradouro}
-                key={result.cep}
+              key={result.cep}
+              cep={result.cep}
+              localidade={result.localidade + "/" + result.uf}
+              bairro={result.bairro}
+              logradouro={result.logradouro}
               />
             ))}
           </Address>
-            
-          </>
-        ) : "Nada Encontrado"}
+        ) : (
+          ""
+        )}
       </div>
     </div>
   );
 }
 
-export default SearchZipCode;
+export default SearchZipCode

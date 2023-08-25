@@ -6,18 +6,25 @@ import AddressTableRow from "../components/AddressTableRow";
 const fetchAddress = async (ent) => {
   const resposta = await fetch(`https://viacep.com.br/ws/${ent}/json/`);
   const saida = await resposta.json();
-  console.log(saida);
-  console.log(saida.erro)
+  // console.log(saida);
+  // console.log(saida.erro);
   return saida;
 };
 
 function SearchAddress() {
+
   const [busca, setBusca] = useState("");
   const [resultado, setResultado] = useState();
 
   const handleSearch = (ev) => {
     ev.preventDefault();
-    fetchAddress(busca).then((result) => setResultado(result));
+    fetchAddress(busca).then((result) => {
+      if(result.erro){
+        console.log("Deu o erro")
+        setResultado("erro")
+      } else {
+      setResultado(result)}
+    });
   };
 
   return (
@@ -39,25 +46,21 @@ function SearchAddress() {
           <img src="/icons8-search.svg" alt="lupa-de-busca" />
         </button>
       </form>
-      {resultado ? (
-        // <Address
-        //   cep={resultado.cep}
-        //   logradouro={resultado.logradouro}
-        //   bairro={resultado.bairro}
-        //   cidade={resultado.localidade}
-        //   estado={resultado.uf}
-        // />
-        <Address >
-          <AddressTableRow 
-            cep={resultado.cep}
-            localidade={resultado.localidade + "/" + resultado.uf}
-            bairro={resultado.bairro}
-            logradouro={resultado.logradouro}
-          />
-        </Address>
-      ) : (
-        ""
-      )}
+      {resultado === "erro" ? (
+          <p>CEP não encontrado!</p>
+        ) : resultado ? (
+          <Address >
+            <AddressTableRow 
+              cep={resultado.cep}
+              localidade={resultado.localidade + "/" + resultado.uf}
+              bairro={resultado.bairro}
+              logradouro={resultado.logradouro}
+            />
+          </Address>
+        ) : (
+          ""
+        )
+      }
     </>
   );
 }

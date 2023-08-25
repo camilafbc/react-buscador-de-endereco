@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 
 Address.propTypes = {
-  children: PropTypes.element
+  children: PropTypes.ReactElement
 };
 
 function Address({ children }) {
