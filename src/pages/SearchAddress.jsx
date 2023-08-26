@@ -1,66 +1,40 @@
-import { useState } from "react";
+import useAddress from "../hooks/useAddress.js";
 import Address from "../components/Address";
 import AddressTableRow from "../components/AddressTableRow";
-// import Address from "../components/Address";
-
-const fetchAddress = async (ent) => {
-  const resposta = await fetch(`https://viacep.com.br/ws/${ent}/json/`);
-  const saida = await resposta.json();
-  // console.log(saida);
-  // console.log(saida.erro);
-  return saida;
-};
 
 function SearchAddress() {
-
-  const [busca, setBusca] = useState("");
-  const [resultado, setResultado] = useState();
-
-  const handleSearch = (ev) => {
-    ev.preventDefault();
-    fetchAddress(busca).then((result) => {
-      if(result.erro){
-        console.log("Deu o erro")
-        setResultado("erro")
-      } else {
-      setResultado(result)}
-    });
-  };
+  const { busca, setBusca, resultado, handleSearch } = useAddress();
 
   return (
     <>
       <form onSubmit={handleSearch} className="searchAdd_form">
-        
-          {/* <label htmlFor="entrada">CEP:</label> */}
-          <input
-            type="text"
-            name="entrada"
-            id="entrada"
-            value={busca}
-            placeholder="CEP"
-            required
-            onChange={(ev) => setBusca(ev.target.value)}
-          />
-        
+        <input
+          type="text"
+          name="entrada"
+          id="entrada"
+          value={busca}
+          placeholder="CEP"
+          required
+          onChange={(ev) => setBusca(ev.target.value)}
+        />
         <button type="submit">
           <img src="/icons8-search.svg" alt="lupa-de-busca" />
         </button>
       </form>
       {resultado === "erro" ? (
-          <p>CEP não encontrado!</p>
-        ) : resultado ? (
-          <Address >
-            <AddressTableRow 
-              cep={resultado.cep}
-              localidade={resultado.localidade + "/" + resultado.uf}
-              bairro={resultado.bairro}
-              logradouro={resultado.logradouro}
-            />
-          </Address>
-        ) : (
-          ""
-        )
-      }
+        <p>CEP não encontrado!</p>
+      ) : resultado ? (
+        <Address>
+          <AddressTableRow
+            cep={resultado.cep}
+            localidade={resultado.localidade + "/" + resultado.uf}
+            bairro={resultado.bairro}
+            logradouro={resultado.logradouro}
+          />
+        </Address>
+      ) : (
+        ""
+      )}
     </>
   );
 }
