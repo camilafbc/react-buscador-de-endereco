@@ -149,3 +149,13 @@ td {
   border: 0.25px solid #aaa;
   padding: 0.25rem;
 }
+
+.form_group {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.input-error {
+  outline: 1px solid rgb(255, 72, 72);
+}
