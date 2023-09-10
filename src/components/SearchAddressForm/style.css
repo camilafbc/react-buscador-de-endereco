@@ -1,0 +1,33 @@
+.searchAdd_form {
+  margin: 0 auto 2rem;
+  width: 300px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.searchAdd_form > button {
+  align-self: baseline;
+}
+
+.searchAdd_form > label {
+  width: 4rem;
+  text-align: end;
+  margin-right: 0.5rem;
+}
+
+.searchZC_form > button {
+  align-self: self-end;
+}
+
+ /* .searchAdd_form > .form_group {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.searchAdd_form > .form_group > span {
+  margin-top: 0.25rem;
+  text-align: left;
+  font-size: 0.875rem;
+} */
