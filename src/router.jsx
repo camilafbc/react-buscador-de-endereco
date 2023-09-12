@@ -1,12 +1,12 @@
-import { createBrowserRouter } from 'react-router-dom'
-import Home from './pages/Home'
-import SearchAddress from './pages/SearchAddress'
-import SearchZipCode from './pages/SearchZipCode'
+import { createBrowserRouter } from 'react-router-dom';
+import RootLayout from './components/RootLayout';
+import SearchAddress from './pages/SearchAddress';
+import SearchZipCode from './pages/SearchZipCode';
 
 const router = createBrowserRouter([
     {
         path: "/",
-        element: <Home />,
+        element: <RootLayout />,
         children: [
             {
                 index: true,
@@ -21,4 +21,3 @@ const router = createBrowserRouter([
 ])
 
 export default router
-

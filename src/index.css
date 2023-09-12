@@ -35,7 +35,7 @@ body {
   display: flex;
   justify-content: center;
   gap: 2rem;
-  margin: 2rem 0;
+  margin: 2rem 0.25rem;
   font-size: 1.25rem;
 }
 
@@ -73,6 +73,11 @@ button > img {
   width: 23px;
 }
 
+button:active {
+  transform: scale(0.9);
+  transition: 0.4s;
+}
+
 .address {
   width: 90%;
   max-width: 400px;
@@ -80,6 +85,8 @@ button > img {
 }
 
 table {
+  width: 98%;
+  max-width: 700px;
   margin: 2rem auto;
 }
 
@@ -98,6 +105,10 @@ td {
   padding: 0.25rem;
 }
 
+.table_container {
+  overflow-x: auto;
+}
+
 .input_group {
   display: flex;
   flex-direction: column;
@@ -105,12 +116,30 @@ td {
 }
 
 .input_group > span {
-  margin-top: 0.25rem;
+  margin-top: 0.125rem;
   text-align: left;
   font-size: 0.875rem;
+  color: rgb(255, 72, 72);
 }
 
 .input-error {
-  /* outline: 1px solid rgb(255, 72, 72); */
-  border-color: rgb(255, 72, 72);
+  outline: 1px solid rgb(255, 72, 72);
+  /* border-color: rgb(255, 72, 72); */
+}
+
+
+/* RESPONSIVIDADE */
+
+@media(min-width: 768px){
+  .layout_container > h1 {
+    font-size: 2.5rem;
+  }
+
+  .link_container {
+    font-size: 1.5rem;
+  }
+
+  label {
+    font-size: 1.05rem;
+  }
 }

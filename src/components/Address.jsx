@@ -13,7 +13,7 @@ function Address({ children }) {
               <th>CEP</th>
               <th>Localidade</th>
               <th>Bairro</th>
-              <th>LOGRADOURO</th>
+              <th>Logradouro</th>
             </tr>
           </thead>
           <tbody>

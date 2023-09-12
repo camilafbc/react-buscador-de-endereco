@@ -1,6 +1,6 @@
 import { Link, Outlet, useLocation } from "react-router-dom";
 
-function Home() {
+function RootLayout() {
 
   const { pathname } = useLocation()
 
@@ -17,4 +17,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default RootLayout;

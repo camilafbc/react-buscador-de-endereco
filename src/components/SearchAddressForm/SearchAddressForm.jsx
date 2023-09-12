@@ -18,16 +18,14 @@ function SearchAddressForm({ onSubmit }) {
           placeholder="CEP"
           {...register("cep", {
             required: true,
-            minLength: 8,
-            pattern: /[0-9]/
+            pattern: /^\d{8}$/
           })}
         />
-        {errors?.cep?.type === "required" && <span>Campo obrigatório</span>}
-        {errors?.cep?.type === "minLength" && (
-          <span>CEP deve conter 8 caracteres</span>
-        )}
+        {errors?.cep?.type === "required" && 
+          <span>Campo obrigatório</span>
+        }
         {errors?.cep?.type === "pattern" && (
-          <span>CEP deve conter apenas números</span>
+          <span>CEP deve conter 8 caracteres numéricos</span>
         )}
       </div>
       <button type="submit">

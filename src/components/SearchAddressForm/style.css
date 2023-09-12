@@ -1,6 +1,8 @@
 .searchAdd_form {
-  margin: 0 auto 2rem;
-  width: 300px;
+  margin: 1rem auto 3rem;
+  /* width: 300px; */
+  width: 90%;
+  max-width: 400px;
   display: flex;
   align-items: center;
   gap: 1rem;
@@ -16,9 +18,9 @@
   margin-right: 0.5rem;
 }
 
-.searchZC_form > button {
+/* .searchZC_form > button {
   align-self: self-end;
-}
+} */
 
  /* .searchAdd_form > .form_group {
   display: flex;

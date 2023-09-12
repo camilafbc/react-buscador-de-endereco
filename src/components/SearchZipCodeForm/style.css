@@ -13,13 +13,17 @@
 }
 
 .searchZC_form > div > label {
-  width: 4rem;
+  width: 6.5rem;
   height: 34px;
   margin-right: 0.5rem;
   display: flex;
   justify-content: end;
   align-items: center;
   align-self: baseline;
+}
+
+.searchZC_form > button {
+  align-self: self-end;
 }
 
 input, select {

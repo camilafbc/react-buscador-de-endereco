@@ -22,7 +22,7 @@ const useZipCode = () => {
     )
       .then((result) => {
         if (result.length === 0) {
-          setResultado("none");
+          setResultado("error");
         } else {
           setResultado(result);
         }

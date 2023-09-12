@@ -82,7 +82,7 @@ function SearchZipCodeForm({ onSubmit, onChange }) {
       </div>
 
       <div>
-        <label htmlFor="logradouro">Rua:</label>
+        <label htmlFor="logradouro">Logradouro:</label>
         <div className="input_group">
           <input
             className={errors?.logradouro && "input-error"}

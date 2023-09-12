@@ -8,18 +8,17 @@ function SearchZipCode() {
   const {  resultado, handleChange, handleSearch } = useZipCode()
 
   const onSubmit = (data) => {
-    console.log(data)
     handleSearch(data.estado, data.cidade, data.logradouro)
   }
 
   return (
-    <div>
+    <>
       <SearchZipCodeForm 
         onSubmit={onSubmit}
         onChange={handleChange}
       />
-      <div>
-        {resultado === "none" || resultado == "error" ? (
+      <div className="table_container">
+        {resultado == "error" ? (
           <p>Nenhum resultado encontrado!</p>
         ) : resultado ? (
           <Address>
@@ -37,7 +36,7 @@ function SearchZipCode() {
           ""
         )}
       </div>
-    </div>
+    </>
   );
 }
 
