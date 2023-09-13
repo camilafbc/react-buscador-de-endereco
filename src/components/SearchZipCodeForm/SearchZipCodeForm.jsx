@@ -58,7 +58,6 @@ function SearchZipCodeForm({ onSubmit, onChange }) {
             <span>Estado não selecionado!</span>
           )}
         </div>
-        
       </div>
 
       <div>
@@ -99,7 +98,6 @@ function SearchZipCodeForm({ onSubmit, onChange }) {
             <span>Logradouro deve conter mais de 3 caracteres!</span>
           )}
         </div>
-        
       </div>
       <button type="submit">
         <img src="/icons8-search.svg" alt="lupa-de-busca" />

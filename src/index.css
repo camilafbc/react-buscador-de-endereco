@@ -10,13 +10,21 @@
   font-family: 'Ubuntu', sans-serif;
   line-height: 1.5;
   font-weight: 400;
+
+  --background-body-color: #e5e5e5;
+  --main-black-color: #333333;
+  --white-color: #f5f5f5;
+  --tab-color: #555555;
+  --thead-background-color: #625959;
+  --td-border-color: #aaaaaa;
+  --red-error-color: #ff4848;
 }
 
 body {
   min-height: 100vh;
   display: flex;
   justify-content: center;
-  background-color: #e5e5e5;
+  background-color: var(--background-body-color);
 }
 
 .layout_container {
@@ -25,10 +33,9 @@ body {
 }
 
 .layout_container > h1 {
-  background-color: #333333;
-  padding: 2rem 0;
-  color: #f5f5f5;
-  margin-bottom: 1rem;
+  background-color: var(--main-black-color);
+  padding: 2rem 0.5rem;
+  color: var(--white-color);
 }
 
 .link_container {
@@ -41,23 +48,22 @@ body {
 
 .tab {
   text-decoration: none;
-  color: inherit;
-  color: #555;
+  color: var(--tab-color);
   cursor: pointer;
 }
 
 .tab.active {
-  color: #333;
-  border-bottom: 1px solid #333;
+  color: var(--main-black-color);
+  border-bottom: 1px solid var(--main-black-color);
 }
 
 input:focus {
-  border: 1px solid #333;
+  border: 1px solid var(--main-black-color);
 }
 
 button {
   padding: 0.25rem 0.5rem;
-  border: 1px solid #333;
+  border: 1px solid var(--main-black-color);
   background-color: transparent;
   border-radius: 5px;
   cursor: pointer;
@@ -86,13 +92,13 @@ button:active {
 
 table {
   width: 98%;
-  max-width: 700px;
+  max-width: 800px;
   margin: 2rem auto;
 }
 
 thead {
-  background-color: #625959;
-  color: #f5f5f5;
+  background-color: var(--thead-background-color);
+  color: var(--white-color);
   font-size: 0.975rem;
 }
 
@@ -101,7 +107,7 @@ th {
 }
 
 td {
-  border: 0.25px solid #aaa;
+  border: 0.25px solid var(--td-border-color);
   padding: 0.25rem;
 }
 
@@ -119,12 +125,11 @@ td {
   margin-top: 0.125rem;
   text-align: left;
   font-size: 0.875rem;
-  color: rgb(255, 72, 72);
+  color: var(--red-error-color);
 }
 
 .input-error {
-  outline: 1px solid rgb(255, 72, 72);
-  /* border-color: rgb(255, 72, 72); */
+  outline: 1px solid var(--red-error-color);
 }
 
 
@@ -141,5 +146,11 @@ td {
 
   label {
     font-size: 1.05rem;
+  }
+}
+
+@media(min-width: 1024px){
+  .layout_container > h1 {
+    font-size: 3rem;
   }
 }

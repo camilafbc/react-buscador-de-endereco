@@ -2,13 +2,13 @@ import { useState } from "react";
 
 const useAddress = () => {
  
-  const [resultado, setResultado] = useState();
+  const [result, setResult] = useState();
 
   // faz a requisição à API
   const fetchAddress = async (ent) => {
-    const resposta = await fetch(`https://viacep.com.br/ws/${ent}/json/`);
-    const saida = await resposta.json();
-    return saida;
+    const response = await fetch(`https://viacep.com.br/ws/${ent}/json/`);
+    const data = await response.json();
+    return data;
   };
 
   // trata a resposta da requisição
@@ -16,15 +16,15 @@ const useAddress = () => {
     fetchAddress(entrada)
       .then((result) => {
         if (result.erro) {
-          setResultado("erro");
+          setResult("erro");
         } else {
-          setResultado(result);
+          setResult(result);
         }
       })
   };
 
   return {
-    resultado,
+    result,
     handleSearch,
   };
 };

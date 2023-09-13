@@ -2,15 +2,15 @@ import { useState } from "react";
 
 const useZipCode = () => {
 
-  const [resultado, setResultado] = useState();
+  const [result, setResult] = useState();
 
   //   faz a requisição à API
   const fetchCEP = async (es, cd, rua) => {
-    const resposta = await fetch(
+    const response = await fetch(
       `https://viacep.com.br/ws/${es}/${cd}/${rua}/json/`
     );
-    const saida = await resposta.json();
-    return saida;
+    const data = await response.json();
+    return data;
   };
 
   //   trata a resposta da requisição
@@ -22,15 +22,15 @@ const useZipCode = () => {
     )
       .then((result) => {
         if (result.length === 0) {
-          setResultado("error");
+          setResult("error");
         } else {
-          setResultado(result);
+          setResult(result);
         }
       })
   };
 
   return {
-    resultado,
+    result,
     handleSearch,
   };
 };

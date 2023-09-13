@@ -13,11 +13,11 @@
 }
 
 .searchZC_form > div > label {
-  width: 6.5rem;
+  width: 8.5rem;
   height: 34px;
   margin-right: 0.5rem;
   display: flex;
-  justify-content: end;
+  justify-content: flex-start;
   align-items: center;
   align-self: baseline;
 }

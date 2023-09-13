@@ -5,7 +5,7 @@ import useZipCode from "../hooks/useZipCode";
 
 function SearchZipCode() {
 
-  const {  resultado, handleChange, handleSearch } = useZipCode()
+  const {  result, handleChange, handleSearch } = useZipCode()
 
   const onSubmit = (data) => {
     handleSearch(data.estado, data.cidade, data.logradouro)
@@ -18,11 +18,11 @@ function SearchZipCode() {
         onChange={handleChange}
       />
       <div className="table_container">
-        {resultado == "error" ? (
+        {result == "error" ? (
           <p>Nenhum resultado encontrado!</p>
-        ) : resultado ? (
+        ) : result ? (
           <Address>
-            {resultado.map(result => (
+            {result.map(result => (
               <AddressTableRow 
               key={result.cep}
               cep={result.cep}

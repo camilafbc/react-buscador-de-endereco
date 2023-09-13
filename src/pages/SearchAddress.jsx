@@ -5,7 +5,7 @@ import SearchAddressForm from "../components/SearchAddressForm/SearchAddressForm
 
 function SearchAddress() {
   
-  const {  resultado, handleSearch } = useAddress();
+  const {  result, handleSearch } = useAddress();
 
   const onSubmit = (data) => {
     handleSearch(data.cep)
@@ -15,17 +15,17 @@ function SearchAddress() {
     <>
       <SearchAddressForm
         onSubmit={onSubmit}
-      />
-      {resultado === "erro" ? (
+      /> 
+      {result === "erro" ? (
         <p>CEP não encontrado!</p>
-      ) : resultado ? (
+      ) : result ? (
        <div className="table_container">
          <Address>
             <AddressTableRow
-              cep={resultado.cep}
-              localidade={resultado.localidade + "/" + resultado.uf}
-              bairro={resultado.bairro}
-              logradouro={resultado.logradouro}
+              cep={result.cep}
+              localidade={result.localidade + "/" + result.uf}
+              bairro={result.bairro}
+              logradouro={result.logradouro}
             />
           </Address>
        </div>
